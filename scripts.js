@@ -1,19 +1,24 @@
 
+let playerScore = 0;
+let computerScore = 0;
 
-
-function getComputerInput(){
+function getComputerChoice(){
     randoChoice = Math.floor(Math.random() * 2) + 1;
 
     switch(randoChoice){
         case 1:
-            return "Rock";
+            return "rock";
         case 2:
-            return "Paper";
+            return "paper";
         case 3:
-            return "Scissors";
+            return "scissors";
         default:
             return "this isn't working";
     }
+}
+
+function displayScore(){
+    console.log(`Current Scores:\nPlayer: ${playerScore}\nComputer: ${computerScore}`);
 }
 
 function getHumanChoice(){
@@ -22,9 +27,55 @@ function getHumanChoice(){
         alert("incorrect choice, please re-input");
         choice = prompt("Please choose rock, paper or scissors").toLowerCase();
     }
-    console.log("correct choice noted");
+    return choice;
 }
 
-getHumanChoice();
+let choiceHuman = getHumanChoice();
+let choiceComputer = getComputerChoice();
 
+function playRound(humanChoice, computerChoice){
+    let humanWinner = null;
+    if (humanChoice === "paper"){
+        switch(computerChoice){
+            case "rock":
+                humanWinner = true;
+                break;
+            case "scissors":
+                humanWinner = false;
+        }
+    }
+    else if (humanChoice === "rock"){
+        switch (computerChoice){
+            case "paper":
+                humanWinner = false;
+                break;
+            case "scissors":
+                humanWinner = true;
+                break;
+        }
+    }
+    else if (humanChoice === "scissors"){
+        switch (computerChoice){
+            case "paper":
+                humanWinner = true;
+                break;
+            case "rock":
+                humanWinner = false;
+                break;
+        }
+    }
+    if (humanWinner === true){
+        console.log(`Player chose ${humanChoice}, computer chose ${computerChoice}, player wins!`);
+        playerScore++;
+    }
+    else if (humanWinner === false){
+        console.log(`Player chose ${humanChoice}, computer chose ${computerChoice}, computer wins!`);
+        computerScore++;
+    }
+    else{
+        console.log (`Player chose ${humanChoice}, computer chose ${computerChoice}, it's a draw!`);
+    }
+    displayScore();
+}
 
+playRound(choiceHuman, choiceComputer);
