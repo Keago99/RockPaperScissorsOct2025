@@ -3,7 +3,7 @@ let playerScore = 0;
 let computerScore = 0;
 
 function getComputerChoice(){
-    randoChoice = Math.floor(Math.random() * 2) + 1;
+    randoChoice = Math.floor(Math.random() * 3) + 1;
 
     switch(randoChoice){
         case 1:
@@ -30,8 +30,6 @@ function getHumanChoice(){
     return choice;
 }
 
-let choiceHuman = getHumanChoice();
-let choiceComputer = getComputerChoice();
 
 function playRound(humanChoice, computerChoice){
     let humanWinner = null;
@@ -78,4 +76,16 @@ function playRound(humanChoice, computerChoice){
     displayScore();
 }
 
-playRound(choiceHuman, choiceComputer);
+function playGame(){
+    console.log("We will play 5 games!")
+    let gameHumanChoice = getHumanChoice();
+    let gameComputerChoice = getComputerChoice();
+
+    for (let i = 0; i < 5; i++){
+        playRound(gameHumanChoice, gameComputerChoice);
+        gameHumanChoice = getHumanChoice();
+        gameComputerChoice = getComputerChoice();
+    }
+}
+
+playGame();
