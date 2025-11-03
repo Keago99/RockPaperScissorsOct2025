@@ -22,6 +22,24 @@ function getComputerChoice(){
     }
 }
 
+function clickButton(){
+    console.log("you clicked" + this.textContent);
+}
+
+function updateRound(){
+    gameround++;
+    currentRound.textContent = "It's round " + gameround;
+}
+
+function playRound(){
+    console.log("bottomTEXT");
+}
+
+rpsButtons.forEach((button) => {
+
+    button.addEventListener("click", clickButton);
+})
+
 //player clicks the button
 //game checks what round it is and updates the h3
 //game chooses computer output

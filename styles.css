@@ -4,6 +4,7 @@ body{
     align-items: center;
     justify-content: center;
     height: 100vh;
+    background-color: lightcyan;
 }
 
 .mainDiv{
@@ -14,6 +15,7 @@ body{
     width: 1000px;
     background-color: blue;
     border: 4px dashed orange;
+    color: whitesmoke;
 }
 
 .buttonContainer{
@@ -31,4 +33,34 @@ body{
     color:  red;
     border-radius: 20px;
     background-color: orange;
+}
+
+.imgButton{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgButton > img{
+    height: 125px;
+    width: 150px;
+    margin-bottom: 5px;
+}
+
+.screen{
+    display: flex;
+    width: 1000px;
+    height: 320px;
+    justify-content: space-evenly;
+}
+
+.scoreBox{
+    display:flex;
+    flex-direction: column;
+}
+
+.scoreCounter{
+    text-align: center;
+    font-size: 90px;
 }
