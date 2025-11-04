@@ -60,6 +60,12 @@ body{
     justify-content: space-evenly;
 }
 
+.mainInfo{
+    font-size: larger;
+    text-align: center;
+    width: 525px;
+}
+
 .scoreBox{
     display:flex;
     flex-direction: column;
