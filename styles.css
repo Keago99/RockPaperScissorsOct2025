@@ -53,6 +53,10 @@ body{
     border: 4px dashed orange
 }
 
+#roundMessage{
+    text-align: center;
+}
+
 .screen{
     display: flex;
     width: 1000px;
@@ -61,7 +65,7 @@ body{
 }
 
 .mainInfo{
-    font-size: larger;
+    font-size: x-large;
     text-align: center;
     width: 525px;
 }

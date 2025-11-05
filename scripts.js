@@ -33,8 +33,10 @@ function updateInformation(){
 }
 
 function playRound(humanChoice, computerChoice){
+    if (gameround >=5){
+        return;
+    }
     let humanWinner = null;
-
     if(playerScore === 0 && computerScore === 0){
         mainInfo.innerText = "";
     }
@@ -80,13 +82,25 @@ function playRound(humanChoice, computerChoice){
         mainInfo.innerText += (`Player chose ${humanChoice}, computer chose ${computerChoice}, it's a draw! \n`);
     }
     updateInformation();
+     if(gameround >= 5){
+        if(playerScore == computerScore){
+            roundMessage.textContent = "Its a draw!"
+            return;
+        }
+        else if(playerScore > computerScore){
+            roundMessage.textContent = "Player wins!"
+            return;
+        }
+        else{
+            roundMessage.textContent = "Computer wins!"
+            return;
+        }
 }
-
+}
 rpsButtons.forEach(button => {
     button.addEventListener('click', function() {
         const playerChoice = this.textContent.trim();
         const computerChoice = ComputerChoice();
-        console.log(playerChoice);
         playRound(playerChoice, computerChoice);
     });
 });
